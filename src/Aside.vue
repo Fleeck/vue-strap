@@ -46,6 +46,10 @@ export default {
         this._backdrop.classList.add('in')
         $(this._backdrop).on('click', () => this.trigger_close())
       } else {
+        if (!this._backdrop) {
+          this._backdrop = document.getElementsByClassName('aside-backdrop')[0]
+        }
+
         $(this._backdrop).on('transitionend', () => {
           $(this._backdrop).off()
           try {
